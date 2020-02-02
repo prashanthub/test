@@ -8,12 +8,16 @@ require 'vendor/autoload.php';
 use Aws\S3\S3Client;  
 use Aws\Exception\AwsException;
 
-
+$key = 'AKIAIOSFODNN7EXAMPLEVB';
+$secret = 'wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY';
 /****************  List Buckets  *************/
 $s3Client = new S3Client([
-    'profile' => 'default',
     'region' => 'us-west-2',
-    'version' => '2006-03-01'
+    'version' => '2006-03-01',
+      'credentials' => [
+        'key' => $key,
+        'secret' => $secret
+       ]
 ]);
 
 //Listing all S3 Bucket
